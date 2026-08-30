@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Friendly Kokomo</title>
+<meta name="description" content="Ropa y accesorios con ilustraciones de crítica social y humor, hechos bajo pedido.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171412;
+    --grey:#6b6660;
+    --line:#e9e6e0;
+    --bite:#FF5A5F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px 0;
+  }
+  .brand{
+    font-family:'Permanent Marker',cursive;
+    font-size:1.3rem;
+  }
+  nav{display:flex;align-items:center;gap:26px;}
+  nav a{color:var(--ink);text-decoration:none;font-size:0.92rem;}
+  nav a.lang{
+    border:1px solid var(--line);border-radius:5px;
+    padding:4px 9px;font-size:0.78rem;
+  }
+
+  .banner{
+    position:relative;
+    width:100%;
+    aspect-ratio:12/1;
+    background:#fafaf8;
+    margin-bottom:44px;
+    display:flex;align-items:flex-start;justify-content:flex-start;
+  }
+  .banner .placeholder{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:#c8c3ba;font-size:0.8rem;
+  }
+  .banner .tagline{
+    position:relative;
+    padding:18px 22px;
+    max-width:60%;
+  }
+  .banner .tagline p{
+    font-family:'Permanent Marker',cursive;
+    font-size:1.1rem;
+    margin:0;
+    line-height:1.4;
+    text-align:left;
+  }
+  .banner .tagline p span{color:var(--bite);}
+
+  @media(max-width:640px){
+    .banner{aspect-ratio:10/5;}
+    .banner .tagline{max-width:80%;padding:14px 16px;}
+    .banner .tagline p{font-size:0.95rem;}
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .item{
+    padding:34px 18px 40px;
+    border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+  .item:not(:last-child){border-right:1px solid var(--line);}
+  .art{
+    aspect-ratio:1/1;
+    background:#fafaf8;
+    display:flex;align-items:center;justify-content:center;
+    color:#b9b4ab;font-size:0.8rem;
+    margin-bottom:22px;
+  }
+  .item h3{font-size:1rem;font-weight:600;margin:0 0 4px;}
+  .item p.desc{font-size:0.85rem;color:var(--grey);margin:0 0 16px;line-height:1.5;min-height:2.6em;}
+  .swatches{
+    display:flex;justify-content:center;gap:7px;
+    margin-bottom:14px;
+  }
+  .swatch{
+    width:13px;height:13px;border-radius:50%;
+    border:1px solid rgba(0,0,0,0.15);
+    display:inline-block;
+  }
+  .price{font-weight:600;font-size:0.95rem;}
+  .buy{
+    font-size:0.82rem;font-weight:600;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--ink);
+    padding-bottom:1px;
+  }
+  .buy:hover{color:var(--bite);border-color:var(--bite);}
+  .item.exclusive h3:after{
+    content:" · edición única";
+    font-family:'Inter',sans-serif;
+    font-weight:500;font-size:0.7rem;color:var(--bite);
+  }
+
+  .promo{
+    width:100%;
+  }
+  .promo .frame{
+    position:relative;
+    width:100%;
+    min-height:176px;
+    background:#fafaf8;
+    overflow:hidden;
+  }
+  .promo .art{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:#c8c3ba;font-size:0.8rem;
+  }
+  .promo .copy{
+    position:absolute;
+    left:24px;top:20px;
+    z-index:2;
+    max-width:45%;
+  }
+  .promo .copy .tag{
+    font-size:0.7rem;color:var(--bite);font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;
+    text-shadow:0 1px 6px rgba(255,255,255,0.9);
+  }
+  .promo .copy h3{
+    font-family:'Permanent Marker',cursive;
+    font-size:1.25rem;margin:0 0 6px;font-weight:400;
+    text-shadow:0 1px 8px rgba(255,255,255,0.85), 0 1px 2px rgba(255,255,255,0.9);
+  }
+  .promo .copy p.desc{
+    font-size:0.85rem;color:#3a3630;margin:0;line-height:1.4;
+    text-shadow:0 1px 8px rgba(255,255,255,0.85), 0 1px 2px rgba(255,255,255,0.9);
+  }
+  .promo .strip{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    padding:8px;
+    border-bottom:1px solid var(--line);
+  }
+  .promo .strip .price{font-weight:700;font-size:0.92rem;}
+  .promo .strip .buy{
+    font-size:0.8rem;font-weight:600;color:var(--ink);
+    text-decoration:none;border-bottom:1.5px solid var(--ink);
+  }
+
+  @media(max-width:640px){
+    .promo .frame{min-height:200px;}
+    .promo .copy{max-width:80%;}
+  }
+
+  section.story{
+    max-width:560px;margin:70px auto;text-align:center;padding:0 28px;
+  }
+  section.story p{font-size:0.95rem;color:var(--grey);line-height:1.7;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:30px 0 50px;
+    font-size:0.82rem;color:var(--grey);
+  }
+  footer .cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  details summary{cursor:pointer;color:var(--ink);font-weight:500;}
+  details p{max-width:520px;line-height:1.6;margin-top:8px;}
+
+  @media(max-width:640px){
+    .item:not(:last-child){border-right:none;}
+    .tagline p{font-size:1rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">Happy Friendly Kokomo</div>
+    <nav>
+      <a href="#tienda">Tienda</a>
+      <a href="#envios">Envíos</a>
+      <a class="lang" href="../en/index.html">EN</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <div class="placeholder">imagen de marca</div>
+    <div class="tagline">
+      <p>Humor con <span>amor</span> y mala leche, dibujado a mano.</p>
+    </div>
+  </div>
+
+  <div class="promo">
+    <div class="frame">
+      <div class="art">diseño del mes (primer plano)</div>
+      <div class="copy">
+        <span class="tag">Solo este mes · 047/∞</span>
+        <h3>Edición Única</h3>
+        <p class="desc">Algodón orgánico, numerada.<br>Un diseño que no se repite.</p>
+      </div>
+    </div>
+    <div class="strip">
+      <span class="price">45€</span>
+      <a class="buy" href="https://buy.stripe.com/test_fZuaEP8cw9wQcmFaugaMU04" target="_blank" rel="noopener">Comprar</a>
+    </div>
+  </div>
+
+  <section id="tienda" class="grid">
+
+    <article class="item">
+      <div class="art">camiseta</div>
+      <h3>Camiseta</h3>
+      <p class="desc">100% algodón, corte unisex.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#171412" title="Negro"></span>
+        <span class="swatch" style="background:#fff" title="Blanco"></span>
+      </div>
+      <div class="price-row">
+        <span class="price">23€</span>
+        <a class="buy" href="https://buy.stripe.com/test_28E14f0K4bEY0DXdGsaMU00" target="_blank" rel="noopener">Comprar</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="art">sudadera</div>
+      <h3>Sudadera</h3>
+      <p class="desc">Con capucha, algodón grueso.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#171412" title="Negro"></span>
+        <span class="swatch" style="background:#fff" title="Blanco"></span>
+        <span class="swatch" style="background:#a9c9e0" title="Azul cielo"></span>
+        <span class="swatch" style="background:#f5c6d3" title="Rosa clarito"></span>
+      </div>
+      <div class="price-row">
+        <span class="price">38€</span>
+        <a class="buy" href="https://buy.stripe.com/test_eVq8wH2ScdN6cmFeKwaMU01" target="_blank" rel="noopener">Comprar</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="art">tote bag</div>
+      <h3>Tote bag</h3>
+      <p class="desc">Bolsa de algodón resistente.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#171412" title="Negro"></span>
+        <span class="swatch" style="background:#fff" title="Blanco"></span>
+      </div>
+      <div class="price-row">
+        <span class="price">33€</span>
+        <a class="buy" href="https://buy.stripe.com/test_aFabIT50k4cw1I11XKaMU02" target="_blank" rel="noopener">Comprar</a>
+      </div>
+    </article>
+
+    <article class="item">
+      <div class="art">taza</div>
+      <h3>Taza</h3>
+      <p class="desc">Cerámica, con borde y asa de color.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#171412" title="Negro"></span>
+        <span class="swatch" style="background:#fff" title="Blanco"></span>
+      </div>
+      <div class="price-row">
+        <span class="price">16€</span>
+        <a class="buy" href="https://buy.stripe.com/test_bJe00bdwQ38scmF59WaMU03" target="_blank" rel="noopener">Comprar</a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="story">
+    <p>Ilustramos lo que todos pensamos y nadie dice en voz alta. Cada diseño nace de una situación única, sin filtros, sobre lo que nos rodea — con humor, sin miedo y con mucho amor.</p>
+  </section>
+
+  <footer id="envios">
+    <div class="cols">
+      <details>
+        <summary>Envíos y devoluciones</summary>
+        <p>Entrega estimada 3-7 días hábiles (5-9 en la Edición Única). Fabricamos bajo pedido. Si tu producto llega dañado o mal impreso, escríbenos en 30 días con una foto y te lo reponemos sin coste. No aceptamos cambios de talla, color o de opinión.</p>
+      </details>
+      <p>© Happy Friendly Kokomo</p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
