@@ -30,7 +30,9 @@
   .brand{
     font-family:'Permanent Marker',cursive;
     font-size:1.3rem;
+    display:inline-flex;align-items:center;gap:8px;
   }
+  .brand .ship-flags{font-family:initial;font-size:0.85rem;letter-spacing:1px;}
   nav{display:flex;align-items:center;gap:26px;}
   nav a{color:var(--ink);text-decoration:none;font-size:0.92rem;}
   nav .lang-group{
@@ -361,7 +363,7 @@
 <div class="wrap">
 
   <header>
-    <div class="brand">Happy Friendly Kokomo</div>
+    <div class="brand">Happy Friendly Kokomo <span class="ship-flags" title="Enviamos a España">🇪🇸</span></div>
     <nav>
       <a href="#tienda">Tienda</a>
       <a href="#" class="cart-toggle" id="cartToggle">Carrito<span class="cart-count zero" id="cartCount">0</span></a>
